@@ -1,4 +1,5 @@
-
+// eslint-disable-next-line
+import { ContactsOutlined } from "@ant-design/icons";
 import { useMoralisDapp } from "providers/MoralisDappProvider/MoralisDappProvider";
 import { useEffect, useState } from "react";
 import { useMoralisWeb3Api, useMoralisWeb3ApiCall } from "react-moralis";
@@ -21,7 +22,7 @@ export const useNFTTokenIds = (addr) => {
     address: addr,
     limit: 10,
   });
-// eslint-disable-next-line react-hooks/exhaustive-deps
+// eslint-disable-next-line
   useEffect(async () => {
     if (data?.result) {
       const NFTs = data.result;
@@ -61,7 +62,7 @@ export const useNFTTokenIds = (addr) => {
         }
       }
       setNFTTokenIds(NFTs);
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
+    }// eslint-disable-next-line
   }, [data]);
 
   return {

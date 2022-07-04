@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// eslint-disable-next-line
+import React, { useState, useEffect } from "react";
 import { getNativeByChain } from "helpers/networks";
 import { getCollectionsByChain } from "helpers/collections";
 import {
@@ -65,7 +66,7 @@ function NFTTokenIds({ inputValue, setInputValue }) {
   const { chainId, marketAddress, contractABI, walletAddress } =
     useMoralisDapp();
   const nativeName = getNativeByChain(chainId);
-  const contractABIJson = JSON.parse(contractABI);
+  const contractABIJson = JSON.stringify(contractABI);
   const { Moralis } = useMoralis();
   const queryMarketItems = useMoralisQuery("MarketItems");
   const fetchMarketItems = JSON.parse(
@@ -302,15 +303,15 @@ function NFTTokenIds({ inputValue, setInputValue }) {
                   text={`${
                     getMarketItem(nftToBuy).price / ("1e" + 18)
                   } ${nativeName}`}
-                > 
-                  <img alt="description"
+                >
+                  <img alt=""
                     src={nftToBuy?.image}
                     style={{
                       width: "250px",
                       borderRadius: "10px",
                       marginBottom: "15px",
                     }}
-                  /> 
+                  />
                 </Badge.Ribbon>
               </div>
             </Spin>
@@ -321,8 +322,8 @@ function NFTTokenIds({ inputValue, setInputValue }) {
             visible={visible}
             onCancel={() => setVisibility(false)}
             onOk={() => setVisibility(false)}
-          > 
-            <img alt="description"
+          >
+            <img alt=""
               src={nftToBuy?.image}
               style={{
                 width: "250px",
