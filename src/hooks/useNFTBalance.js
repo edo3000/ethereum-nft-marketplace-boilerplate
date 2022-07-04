@@ -15,7 +15,7 @@ export const useNFTBalance = (options) => {
     isLoading,
   } = useMoralisWeb3ApiCall(account.getNFTs, { chain: chainId, ...options });
   const [fetchSuccess, setFetchSuccess] = useState(true);
-
+// eslint-disable-next-line
   useEffect(async () => {
     if (data?.result) {
       const NFTs = data.result;

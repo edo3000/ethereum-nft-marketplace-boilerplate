@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { getNativeByChain } from "helpers/networks";
 import { getCollectionsByChain } from "helpers/collections";
 import {
   useMoralis,
   useMoralisQuery,
-  useNewMoralisObject,
 } from "react-moralis";
 import { Card, Image, Tooltip, Modal, Badge, Alert, Spin } from "antd";
 import { useNFTTokenIds } from "hooks/useNFTTokenIds";
@@ -303,15 +302,15 @@ function NFTTokenIds({ inputValue, setInputValue }) {
                   text={`${
                     getMarketItem(nftToBuy).price / ("1e" + 18)
                   } ${nativeName}`}
-                >
-                  <img
+                > 
+                  <img alt="description"
                     src={nftToBuy?.image}
                     style={{
                       width: "250px",
                       borderRadius: "10px",
                       marginBottom: "15px",
                     }}
-                  />
+                  /> 
                 </Badge.Ribbon>
               </div>
             </Spin>
@@ -322,8 +321,8 @@ function NFTTokenIds({ inputValue, setInputValue }) {
             visible={visible}
             onCancel={() => setVisibility(false)}
             onOk={() => setVisibility(false)}
-          >
-            <img
+          > 
+            <img alt="description"
               src={nftToBuy?.image}
               style={{
                 width: "250px",

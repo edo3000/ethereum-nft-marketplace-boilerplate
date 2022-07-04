@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useMoralis, useMoralisQuery } from "react-moralis";
+import React, {  } from "react";
+import { useMoralisQuery } from "react-moralis";
 import { useMoralisDapp } from "providers/MoralisDappProvider/MoralisDappProvider";
 import { Table, Tag, Space } from "antd";
 import { PolygonCurrency} from "./Chains/Logos";
@@ -14,7 +14,6 @@ const styles = {
 
 function NFTMarketTransactions() {
   const { walletAddress } = useMoralisDapp();
-  const { Moralis } = useMoralis();
   const queryItemImages = useMoralisQuery("ItemImages");
   const fetchItemImages = JSON.parse(
     JSON.stringify(queryItemImages.data, [
@@ -74,8 +73,8 @@ function NFTMarketTransactions() {
       title: "Item",
       key: "item",
       render: (text, record) => (
-        <Space size="middle">
-          <img src={getImage(record.collection, record.item)} style={{ width: "40px", borderRadius:"4px"}} />
+        <Space size="middle"> 
+          <img alt="description" src={getImage(record.collection, record.item)} style={{ width: "40px", borderRadius:"4px"}} />
           <span>#{record.item}</span>
         </Space>
       ),
@@ -151,6 +150,7 @@ function NFTMarketTransactions() {
 }
 
 export default NFTMarketTransactions;
+// eslint-disable-next-line
 const columns = [
   {
     title: "Date",
